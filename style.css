@@ -19,6 +19,7 @@ nav{
 
 #logo{
     position: absolute;
+    width: 979px;
     top: 650%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -26,11 +27,12 @@ nav{
 }
 
 .page-bg{
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 4000px;
     font-size: 100px;
     color: white;
+    overflow: hidden;
     transform: translateY(200%);
     background-color: rgb(64, 42, 95);
     animation: move-bg 0.8s ease forwards 3s;
@@ -141,9 +143,19 @@ nav{
     }
 }
 
+@keyframes move-title-mobile{
+    to{
+        top: 25px;
+        left: 60px;
+        height: 180px;
+        width: 100px;
+    }
+}
+
 @keyframes move-bg {
     to{
         transform: translateY(50px);
+        position: absolute;
     }
 }
 
@@ -151,4 +163,36 @@ nav{
     0% { opacity:0; }
     66% { opacity:0; }
     100% { opacity:1; }
+}
+
+@media screen and (max-width: 800px){
+    #logo{
+        width: 50%;
+        animation: fill 0.5s ease forwards 2s, move-title-mobile 0.8s ease forwards 3s;
+    }
+    .nav-prod{
+        position: relative;
+        font-family: sans-serif;
+        color: white;
+        top: 18px;
+        left: 130px;
+        animation: 6s ease 0s normal forwards 1 fade-in;
+    }
+    .nav-about{
+        position: absolute;
+        font-family: sans-serif;
+        color: white;
+        top: 18px;
+        left: 205px;
+        animation: 6s ease 0s normal forwards 1 fade-in;
+    }
+    .nav-contacts{
+        position: absolute;
+        font-family: sans-serif;
+        color: white;
+        top: 18px;
+        left: 280px;
+        animation: 6s ease 0s normal forwards 1 fade-in;
+    }
+
 }
