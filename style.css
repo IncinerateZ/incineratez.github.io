@@ -9,10 +9,17 @@ body{
     height: 100vh;
     background-color: rgb(32, 35, 48); 
 }
+nav{
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background: rgb(32, 35, 48);
+}
 
 #logo{
     position: absolute;
-    top: 50%;
+    top: 650%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: fill 0.5s ease forwards 2s, move-title 0.8s ease forwards 3s;
@@ -21,7 +28,7 @@ body{
 .page-bg{
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 4000px;
     font-size: 100px;
     color: white;
     transform: translateY(200%);
@@ -136,7 +143,7 @@ body{
 
 @keyframes move-bg {
     to{
-        transform: translateY(30px);
+        transform: translateY(50px);
     }
 }
 
