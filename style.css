@@ -17,6 +17,12 @@ nav{
     background: rgb(32, 35, 48);
 }
 
+.project-list{
+    font-size: 50px;
+    margin-left: 40px;
+    color: white;
+}
+
 #logo{
     position: absolute;
     width: 979px;
@@ -61,6 +67,10 @@ nav{
     top: 20px;
     left: 440px;
     animation: 6s ease 0s normal forwards 1 fade-in;
+}
+
+#projects-text{
+    color: white;   
 }
 
 #logo path:nth-child(1){
