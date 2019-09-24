@@ -26,7 +26,6 @@ function click(e){
 }
 
 function move(e){
-    console.log(toggle);
     var dragbox = document.getElementById("drag-box");
     if(toggle){
         dragbox.style.top = e.pageY - 62 + "px";
