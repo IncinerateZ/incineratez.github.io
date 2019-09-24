@@ -8,10 +8,6 @@ function click(e){
     dY = parseInt(destbox.style.top.split("px")[0]) + 50;
     if(e.pageX >= boxX && e.pageX <= boxX + 100 && e.pageY >= boxY && e.pageY <= (boxY + 31.5)){
         toggle = !toggle;
-        dragbox.style.height = "31.5px";
-        dragbox.style.border = "2px solid black";
-        dragbox.style.background = "white";
-        dragbox.style.color = "black";
     }
     if(e.pageX >= dX && e.pageX <= dX + 100 && e.pageY >= dY && e.pageY <= (dY + 31.5)){
         dragbox.style.top = dY - 50.5 + "px";
@@ -20,6 +16,12 @@ function click(e){
         dragbox.style.border = 0 + "px";
         dragbox.style.background = "rgb(64, 42, 95)";
         dragbox.style.color = "rgb(64, 42, 95)";
+        if(toggle){
+            dragbox.style.height = "31.5px";
+            dragbox.style.border = "2px solid black";
+            dragbox.style.background = "white";
+            dragbox.style.color = "black";
+        }
     }
 }
 
