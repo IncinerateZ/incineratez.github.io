@@ -16,11 +16,13 @@ function click(e){
         dragbox.style.border = 0 + "px";
         dragbox.style.background = "rgb(64, 42, 95)";
         dragbox.style.color = "rgb(64, 42, 95)";
+        dragbox.innerHTML = "";
         if(toggle){
             dragbox.style.height = "31.5px";
             dragbox.style.border = "2px solid black";
             dragbox.style.background = "white";
             dragbox.style.color = "black";
+            dragbox.innerHTML = "Move Me";
         }
     }
 }
