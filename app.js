@@ -9,7 +9,7 @@ function click(e){
     if(e.pageX >= boxX && e.pageX <= boxX + 100 && e.pageY >= boxY && e.pageY <= (boxY + 31.5)){
         toggle = !toggle;
     }
-    if(e.pageX >= dX && e.pageX <= dX + 100 && e.pageY >= dY && e.pageY <= (dY + 31.5)){
+    if(e.pageX >= dX && e.pageX <= dX + 100 && e.pageY >= dY && e.pageY <= (dY + 31.5) && e.pageX >= boxX && e.pageX <= boxX + 100 && e.pageY >= boxY && e.pageY <= (boxY + 31.5)){
         dragbox.style.top = dY - 50.5 + "px";
         dragbox.style.left = dX + "px";
         dragbox.style.height = "33px";
