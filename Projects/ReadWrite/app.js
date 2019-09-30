@@ -8,7 +8,7 @@ function load(){
         label.innerHTML = form.Text.value;
 
         var blob = new Blob(["This is my first text."], {type: "text/plain;charset=utf-8"});
-        var file = new File(["This is my first text."], "test.txt");
+        var file = new File(["This is my first text."], "./src/dat.txt");
 
 
         form.reset();
