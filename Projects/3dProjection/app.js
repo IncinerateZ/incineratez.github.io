@@ -156,6 +156,10 @@ function draw() {
     ctx.lineTo(newPoints[13].convert2d().x+1, (cHeight - newPoints[13].convert2d().y/2));
 
     ctx.stroke();
+
+    ctx.fillStyle = "black";
+    ctx.font = "10px Arial";
+    ctx.fillText("V-1.2BETA", 2, 8.5);
 }
 //y = x / 2
 // 300 x 300
