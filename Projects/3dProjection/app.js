@@ -132,20 +132,28 @@ function draw() {
     ctx.lineTo(newPoints[4].convert2d().x, (cHeight - newPoints[4].convert2d().y/2));
     ctx.lineTo(newPoints[1].convert2d().x, (cHeight - newPoints[1].convert2d().y/2));
     
-    ctx.lineTo(newPoints[5].convert2d().x, (cHeight - newPoints[5].convert2d().y/2));
-    ctx.lineTo(newPoints[6].convert2d().x, (cHeight - newPoints[6].convert2d().y/2));
-    ctx.lineTo(newPoints[7].convert2d().x, (cHeight - newPoints[7].convert2d().y/2));
-    ctx.lineTo(newPoints[8].convert2d().x, (cHeight - newPoints[8].convert2d().y/2));
-    ctx.lineTo(newPoints[5].convert2d().x, (cHeight - newPoints[5].convert2d().y/2));
+    ctx.lineTo(newPoints[5].convert2d().x+1, (cHeight - newPoints[5].convert2d().y/2));
+    ctx.lineTo(newPoints[6].convert2d().x+1, (cHeight - newPoints[6].convert2d().y/2));
+    ctx.lineTo(newPoints[7].convert2d().x+1, (cHeight - newPoints[7].convert2d().y/2));
+    ctx.lineTo(newPoints[8].convert2d().x+1, (cHeight - newPoints[8].convert2d().y/2));
+    ctx.lineTo(newPoints[5].convert2d().x+1, (cHeight - newPoints[5].convert2d().y/2));
 
-    ctx.moveTo(newPoints[6].convert2d().x, (cHeight - newPoints[6].convert2d().y/2));
-    ctx.lineTo(newPoints[2].convert2d().x, (cHeight - newPoints[2].convert2d().y/2));
+    ctx.moveTo(newPoints[6].convert2d().x+1, (cHeight - newPoints[6].convert2d().y/2));
+    ctx.lineTo(newPoints[2].convert2d().x+1, (cHeight - newPoints[2].convert2d().y/2));
 
-    ctx.moveTo(newPoints[7].convert2d().x, (cHeight - newPoints[7].convert2d().y/2));
-    ctx.lineTo(newPoints[3].convert2d().x, (cHeight - newPoints[3].convert2d().y/2));
+    ctx.moveTo(newPoints[7].convert2d().x+1, (cHeight - newPoints[7].convert2d().y/2));
+    ctx.lineTo(newPoints[3].convert2d().x+1, (cHeight - newPoints[3].convert2d().y/2));
 
-    ctx.moveTo(newPoints[8].convert2d().x, (cHeight - newPoints[8].convert2d().y/2));
-    ctx.lineTo(newPoints[4].convert2d().x, (cHeight - newPoints[4].convert2d().y/2));
+    ctx.moveTo(newPoints[8].convert2d().x+1, (cHeight - newPoints[8].convert2d().y/2));
+    ctx.lineTo(newPoints[4].convert2d().x+1, (cHeight - newPoints[4].convert2d().y/2));
+
+    ctx.moveTo(newPoints[9].convert2d().x+1, (cHeight - newPoints[9].convert2d().y/2));
+    ctx.lineTo(newPoints[10].convert2d().x+1, (cHeight - newPoints[10].convert2d().y/2));
+    ctx.lineTo(newPoints[11].convert2d().x+1, (cHeight - newPoints[11].convert2d().y/2));
+    ctx.lineTo(newPoints[12].convert2d().x+1, (cHeight - newPoints[12].convert2d().y/2));
+
+    ctx.moveTo(newPoints[11].convert2d().x+1, (cHeight - newPoints[11].convert2d().y/2));
+    ctx.lineTo(newPoints[13].convert2d().x+1, (cHeight - newPoints[13].convert2d().y/2));
 
     ctx.stroke();
 }
@@ -164,6 +172,12 @@ function setup() {
     points[5] = new Point3D(200, 100, 200);
     points[6] = new Point3D(200, 200, 200);
     points[7] = new Point3D(100, 200, 200);
+
+    points[8] = new Point3D(150, 150, 130);
+    points[9] = new Point3D(150, 150, 150);
+    points[10] = new Point3D(150, 150, 170);
+    points[11] = new Point3D(140, 150, 160);
+    points[12] = new Point3D(160, 150, 160);
 
     setInterval(draw, 10);
 }
