@@ -178,6 +178,7 @@ function setup() {
     points[10] = new Point3D(150, 150, 170);
     points[11] = new Point3D(140, 150, 160);
     points[12] = new Point3D(160, 150, 160);
+    points[13] = new Point3D(150, 160, 160);
 
     setInterval(draw, 10);
 }
