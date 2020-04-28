@@ -2,6 +2,8 @@ let thetaX = 0;
 let thetaY = 0;
 let thetaZ = 0;
 
+var scale = 4;
+
 let sens = 1;
 
 var down = false;
@@ -34,14 +36,14 @@ class MatMul {
         let y1 = matrix[1][0] * point3d.x + matrix[1][1] * point3d.y + matrix[1][2] * point3d.z;
         let z1 = matrix[2][0] * point3d.x + matrix[2][1] * point3d.y + matrix[2][2] * point3d.z;
         if(rot == 0) {
-            y1 += 150;
-            z1 += 150;
+            y1 += 150*scale;
+            z1 += 150*scale;
         } else if (rot == 1) {
-            x1 += 150;
-            z1 += 150;
+            x1 += 150*scale;
+            z1 += 150*scale;
         } else if (rot == 2) {
-            x1 += 150;
-            y1 += 150;
+            x1 += 150*scale;
+            y1 += 150*scale;
         }
         return new Point3D(x1, y1, z1);
     }
@@ -49,8 +51,8 @@ class MatMul {
     static Rx(theta, point3d) {
         let y1 = point3d.y;
         let z1 = point3d.z;
-        y1 -= 150;
-        z1 -= 150;
+        y1 -= 150*scale;
+        z1 -= 150*scale;
         let Rx = [
             [1, 0, 0],
             [0, Math.cos(theta), -1 * Math.sin(theta)],
@@ -62,8 +64,8 @@ class MatMul {
     static Ry(theta, point3d) {
         let x1 = point3d.x;
         let z1 = point3d.z;
-        x1 -= 150;
-        z1 -= 150;
+        x1 -= 150*scale;
+        z1 -= 150*scale;
         let Ry = [
             [Math.cos(theta), 0, Math.sin(theta)],
             [0, 1, 0],
@@ -75,8 +77,8 @@ class MatMul {
     static Rz(theta, point3d) {
         let x1 = point3d.x;
         let y1 = point3d.y;
-        x1 -= 150;
-        y1 -= 150;
+        x1 -= 150*scale;
+        y1 -= 150*scale;
         let Rz = [
             [Math.cos(theta), -1 * Math.sin(theta), 0],
             [Math.sin(theta), Math.cos(theta), 0],
@@ -113,7 +115,7 @@ function draw() {
     let newPoints = [];
     let i = 0;
     ctx.fillStyle = "#d3d3d3";
-    ctx.fillRect(0, 0, 300, 300);
+    ctx.fillRect(0, 0, 300*scale, 300*scale);
     ctx.fillStyle = "#000000";
     points.forEach(point => {
         point = MatMul.Rx(thetaX, point);
@@ -158,8 +160,8 @@ function draw() {
     ctx.stroke();
 
     ctx.fillStyle = "black";
-    ctx.font = "10px Arial";
-    ctx.fillText("V-1.2BETA", 2, 8.5);
+    ctx.font = "20px Arial";
+    ctx.fillText("V-1.3BETA", 2*scale, 5*scale);
 }
 //y = x / 2
 // 300 x 300
@@ -167,22 +169,22 @@ function draw() {
 
 function setup() {
     points = [];
-    points[0] = new Point3D(100, 100, 100);
-    points[1] = new Point3D(200, 100, 100);
-    points[2] = new Point3D(200, 200, 100);
-    points[3] = new Point3D(100, 200, 100);
+    points[0] = new Point3D(100*scale, 100*scale, 100*scale);
+    points[1] = new Point3D(200*scale, 100*scale, 100*scale);
+    points[2] = new Point3D(200*scale, 200*scale, 100*scale);
+    points[3] = new Point3D(100*scale, 200*scale, 100*scale);
 
-    points[4] = new Point3D(100, 100, 200);
-    points[5] = new Point3D(200, 100, 200);
-    points[6] = new Point3D(200, 200, 200);
-    points[7] = new Point3D(100, 200, 200);
+    points[4] = new Point3D(100*scale, 100*scale, 200*scale);
+    points[5] = new Point3D(200*scale, 100*scale, 200*scale);
+    points[6] = new Point3D(200*scale, 200*scale, 200*scale);
+    points[7] = new Point3D(100*scale, 200*scale, 200*scale);
 
-    points[8] = new Point3D(150, 150, 130);
-    points[9] = new Point3D(150, 150, 150);
-    points[10] = new Point3D(150, 150, 170);
-    points[11] = new Point3D(140, 150, 160);
-    points[12] = new Point3D(160, 150, 160);
-    points[13] = new Point3D(150, 160, 160);
+    points[8] = new Point3D(150*scale, 150*scale, 130*scale);
+    points[9] = new Point3D(150*scale, 150*scale, 150*scale);
+    points[10] = new Point3D(150*scale, 150*scale, 170*scale);
+    points[11] = new Point3D(140*scale, 150*scale, 160*scale);
+    points[12] = new Point3D(160*scale, 150*scale, 160*scale);
+    points[13] = new Point3D(150*scale, 160*scale, 160*scale);
 
     setInterval(draw, 10);
 }
@@ -192,6 +194,8 @@ function setup() {
 window.onload = function() {
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
+    canvas.width *= scale;
+    canvas.height *= scale;
     cWidth = canvas.width;
     cHeight = canvas.height;
     setup();
