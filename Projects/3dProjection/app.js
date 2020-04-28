@@ -2,7 +2,11 @@ let thetaX = 0;
 let thetaY = 0;
 let thetaZ = 0;
 
+var keys = [];
+
 var scale = 4;
+
+var lastDownTarget;
 
 let sens = 1;
 
@@ -112,6 +116,34 @@ class Point3D {
 }
 
 function draw() {
+    // Get keys
+    if(keys[87]) {
+        thetaX += 0.01 * sens;
+    }
+    
+    if(keys[83]) {
+        thetaX -= 0.01 * sens;
+    }
+
+    //A D
+    if(keys[65]) {
+        thetaY += 0.01 * sens;
+    }
+    
+    if(keys[68]) {
+        thetaY -= 0.01 * sens;
+    }
+
+    //R T
+    if(keys[82]) {
+        thetaZ += 0.01 * sens;
+    }
+    
+        if(keys[84]) {
+        thetaZ -= 0.01 * sens;
+    }
+
+
     let newPoints = [];
     let i = 0;
     ctx.fillStyle = "#d3d3d3";
@@ -161,7 +193,7 @@ function draw() {
 
     ctx.fillStyle = "black";
     ctx.font = "20px Arial";
-    ctx.fillText("V-1.3BETA", 2*scale, 5*scale);
+    ctx.fillText("V-1.4BETA", 2*scale, 5*scale);
 }
 //y = x / 2
 // 300 x 300
@@ -208,6 +240,22 @@ window.onload = function() {
         down = false;
         mousePrev = [];
     }
+
+    document.addEventListener('mousedown', function(event) {
+        lastDownTarget = event.target;
+    }, false);
+
+    document.addEventListener('keydown', function(event) {
+        if(lastDownTarget == canvas) {
+            keys[event.keyCode] = true;
+        }
+    }, false);
+
+    document.addEventListener('keyup', function(event) {
+        if(lastDownTarget == canvas) {
+            keys[event.keyCode] = false;
+        }
+    }, false);
 
     canvas.onmousemove = function (e) {
         if(!down) { return;}
