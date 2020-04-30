@@ -18,16 +18,6 @@ let pMat = [
     [0,1,0]
 ];
 
-class Screen {
-    static convert(x, y) {
-        return [x, cHeight - y];
-    }
-
-    static convertP(point) {
-
-    }
-}
-
 class MatMul {
     static mul(point3d) {
         let x1 = pMat[0][0] * point3d.x + pMat[0][1] * point3d.y + pMat[0][2] * point3d.z;
