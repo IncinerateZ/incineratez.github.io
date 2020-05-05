@@ -183,7 +183,7 @@ function draw() {
 
     ctx.fillStyle = "black";
     ctx.font = "20px Arial";
-    ctx.fillText("V-1.4BETA", 2*scale, 5*scale);
+    ctx.fillText("V-1.5BETA", 2*scale, 5*scale);
 }
 //y = x / 2
 // 300 x 300
@@ -211,6 +211,15 @@ function setup() {
     setInterval(draw, 10);
 }
 
+function disableRightClickContextMenu(element) {
+    element.addEventListener('contextmenu', function(e) {
+      if (e.button == 2) {
+        // Block right-click menu thru preventing default action.
+        e.preventDefault();
+      }
+    });
+  }
+
 
 
 window.onload = function() {
@@ -221,6 +230,10 @@ window.onload = function() {
     cWidth = canvas.width;
     cHeight = canvas.height;
     setup();
+
+    //disable right click context menu
+    disableRightClickContextMenu(canvas);
+
     canvas.onmousedown = function (e) {
         down = true;
         sens = document.getElementById("sens").value;
