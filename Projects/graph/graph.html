@@ -1,54 +1,22 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <!-- FAVICON-->
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicomatic/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicomatic/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicomatic/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicomatic/apple-touch-icon-144x144.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="favicomatic/apple-touch-icon-60x60.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicomatic/apple-touch-icon-120x120.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="favicomatic/apple-touch-icon-76x76.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicomatic/apple-touch-icon-152x152.png" />
-        <link rel="icon" type="image/png" href="favicomatic/favicon-196x196.png" sizes="196x196" />
-        <link rel="icon" type="image/png" href="favicomatic/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/png" href="favicomatic/favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="favicomatic/favicon-16x16.png" sizes="16x16" />
-        <link rel="icon" type="image/png" href="favicomatic/favicon-128.png" sizes="128x128" />
-        <meta name="application-name" content="&nbsp;"/>
-        <meta name="msapplication-TileColor" content="#FFFFFF" />
-        <meta name="msapplication-TileImage" content="./favicomatic/mstile-144x144.png" />
-        <meta name="msapplication-square70x70logo" content="./favicomatic/mstile-70x70.png" />
-        <meta name="msapplication-square150x150logo" content="./favicomatic/mstile-150x150.png" />
-        <meta name="msapplication-wide310x150logo" content="./favicomatic/mstile-310x150.png" />
-        <meta name="msapplication-square310x310logo" content="./favicomatic/mstile-310x310.png" />
-        <!-- FAVICON-->
-        <!--OPEN GRAPH-->
-        <meta property="og:title" content="IncinerateZ's Website">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://google.incineratez.tech/">
-        <meta property="og:image" content="http://google.incineratez.tech/favicomatic/mstile-310x310.png">
-        <!--OPEN GRAPH-->
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
         <link rel="stylesheet" href="./style.css"/>
-        <title>IncinerateZ</title>
+        <title>IncinerateZ - Reactive Graph</title>
     </head>
-    <script src="app.js"></script>
+    <script src="./app.js"></script>
     <body>
         <div class="page-bg">
-            <a id="projects-text" 
-            style="text-decoration-line: none" 
-            href="https://www.github.com/IncinerateZ">
-            Projects           
-            </a>
-            <p><a class = "project-list" style="text-decoration-line: none" href="./Projects/Draggables/index">- Draggables</a></p>
-            <p><a class = "project-list" style="text-decoration-line:none" href="./Projects/3dProjection/projection">- 3D Projection</a></p>
-            <p><a class = "project-list" style="text-decoration-line: none" href="https://google.incineratez.tech">- Pure Java, Html, and CSS Web Application using the Google Cloud Platform</a></p>
+            <div class="main-container">
+                <h1 id="content-title">Canvas Drag</h1>
+                <canvas id="canvas"></canvas>
+            </div>
         </div>
         <nav>
-        <a href="./index">
+        <a href="../../index">
         <div>
             <svg id="logo" width="979" height="152" viewBox="0 0 979 152" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21.6211 147H2.87109V4.8125H21.6211V147Z" stroke="white" stroke-width="5"/>
@@ -65,7 +33,7 @@
             </svg>                
         </div>
         </a>
-            <div class="nav-prod"><a style="text-decoration-line: none; color: white" href="products">Products</a></div>]
+            <div class="nav-prod"><a style="text-decoration-line: none; color: white" href="products">Products</a></div>
             <div class="nav-about"><a style="text-decoration-line: none; color: white" href="about">About Me</a></div>
             <div class="nav-contacts"><a style="text-decoration-line: none; color: white" href="contacts">Contacts</a></div>
         </nav>

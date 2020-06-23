@@ -218,7 +218,7 @@ function disableRightClickContextMenu(element) {
         e.preventDefault();
       }
     });
-  }
+}
 
 
 
