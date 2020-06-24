@@ -230,4 +230,5 @@ nav{
     margin-bottom: 0;
     width: 500px;
     height: 500px;
+    cursor: grab;
 }
