@@ -1,6 +1,6 @@
 var down = false;
 var mousePrev = [0, 0];
-var offset = [500, 50]
+var offset = [500, 50];
 
 const CANVAS_SCALE = 4;
 const DRAG_ACCEL = [2.3, 1.2];
