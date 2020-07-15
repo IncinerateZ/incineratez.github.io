@@ -219,7 +219,7 @@ nav{
 #content-title {
     font-size: 40px;
     margin-top: 2%;
-    margin-left: 41%;
+    margin-left: 43%;
 }
 
 #canvas {
@@ -231,4 +231,19 @@ nav{
     width: 500px;
     height: 500px;
     cursor: grab;
+}
+
+#isGrabbing {
+    margin-left: 0px;
+    margin-left: 44%;
+    font-size: 30px;
+}
+
+#nameContainer {
+    font-size: 20px;
+    margin-left: 40%;
+}
+
+input {
+    font-size: 20px;
 }
