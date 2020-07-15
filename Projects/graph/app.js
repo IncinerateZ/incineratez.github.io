@@ -103,7 +103,6 @@ window.onload = function() {
         canvas.style.cursor = "grab";
         target.innerHTML = "Not Grabbing"
         var name = document.getElementById("name").value;
-        console.log(name);
         const userAction = async () => {
             const response = await fetch('https://google.incineratez.tech/hits/' + name, {
                 headers: {
@@ -112,7 +111,6 @@ window.onload = function() {
                 }
             });
             const res = await response.json();
-            console.log(res);
             target.innerHTML = res["email"];
         }
         userAction();
