@@ -1,4 +1,4 @@
-const IMGBANK = "https://api.unsplash.com/photos/random?orientation=landscape&count=4";
+const IMGBANK = "https://api.unsplash.com/photos/random?count=8";
 var IMG_MAX = 12;
 
 const NOIMG = '<svg id="noimg" width="312" height="245" viewBox="0 0 312 245" fill="none" xmlns="http://www.w3.org/2000/svg">' +
@@ -16,6 +16,8 @@ var content;
 var popupcont;
 var imgwidth;
 var imgheight;
+
+var pastres;
 
 function sleep(milliseconds) {
     var start = new Date().getTime();
@@ -56,7 +58,7 @@ function fillCard(res) {
 
 window.onload = function() {
     const pagebg = document.getElementById("page-bg");
-    pagebg.style.height = "675px";
+    pagebg.style.height = "700px";
 
     content = document.getElementById("content");
     popupcont = document.getElementById("popup-container");
@@ -67,39 +69,18 @@ window.onload = function() {
         createImg(i);
     }
 
-    // DEPRECATED
-    const getImage  = async (i) => {
-        const response = await fetch(IMGBANK, {
-            headers: {
-                'Accept-Version' : 'v1',
-                'Authorization' : 'Client-ID nANLvJnLlK9S6wo_2WI5RJ0BU5ux6smSjBsVZT8z6sY'
-            }
-        });
-        const res = await response.json();
-
-        console.log(res);
-
-        const content = document.getElementById("content");
-        content.innerHTML += "<div class='img-shadow' id='img-shadow-" + i + "'><img id=" + i + "></div>";
-
-        const shadow = document.getElementById("img-shadow-" + i);
-        shadow.style.width = imgwidth + "px";
-        shadow.style.height = imgheight + "px";
-
-        const img = document.getElementById(i);
-        img.src = res["urls"]["thumb"];
-    }
-    //^^DEPRECATED^^
-
-
     const getImages = async () => {
-        const response = await fetch(IMGBANK, {
-            headers: {
-                'Accept-Version' : 'v1',
-                'Authorization' : 'Client-ID nANLvJnLlK9S6wo_2WI5RJ0BU5ux6smSjBsVZT8z6sY'
-            }
-        });
-        const res = await response.json();
+        var res;
+        do {
+            const response = await fetch(IMGBANK + Math.ceil((count + 1)/8), {
+                headers: {
+                    'Accept-Version' : 'v1',
+                    'Authorization' : 'Client-ID nANLvJnLlK9S6wo_2WI5RJ0BU5ux6smSjBsVZT8z6sY'
+                }
+            });
+            res = await response.json();
+        } while (res === pastres);
+        pastres = res;
 
         fillCard(res);
 
@@ -130,29 +111,35 @@ window.onload = function() {
 
 window.onscroll = function(ev) {
     const pagebg = document.getElementById("page-bg");
+    const last = document.getElementById(IMG_MAX-1);
+    if(last.src === "") return;
     if ((window.innerHeight + window.pageYOffset) >= parseInt(pagebg.style.height)) {
         pagebg.style.height = (parseInt(pagebg.style.height) + 2*175.5) + "px";
         for(let i = IMG_MAX; i < IMG_MAX + 8; i++) {
             createImg(i);
-            const getImages = async () => {
-                const response = await fetch(IMGBANK, {
+        }
+        const getImages = async () => {
+            var res;
+            do {
+                const response = await fetch(IMGBANK + Math.ceil((count + 1)/8), {
                     headers: {
                         'Accept-Version' : 'v1',
                         'Authorization' : 'Client-ID nANLvJnLlK9S6wo_2WI5RJ0BU5ux6smSjBsVZT8z6sY'
                     }
                 });
-                const res = await response.json();
-        
-                fillCard(res);
-        
-                if(count < IMG_MAX + 8) {
-                    setTimeout(() => {
-                        getImages()
-                    }, 1000);
-                }
+                res = await response.json();
+            } while (res === pastres);
+            pastres = res;
+            
+            fillCard(res);
+    
+            if(count < IMG_MAX + 8) {
+                setTimeout(() => {
+                    getImages()
+                }, 5000);
             }
-            getImages();
         }
+        getImages();
         IMG_MAX += 8;
     }
 };
