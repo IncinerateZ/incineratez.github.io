@@ -114,7 +114,7 @@ window.onscroll = function(ev) {
     const last = document.getElementById(IMG_MAX-1);
     if(last.src === "") return;
     if ((window.innerHeight + window.pageYOffset) >= parseInt(pagebg.style.height)) {
-        pagebg.style.height = (parseInt(pagebg.style.height) + 2*(imgheight + 25)) + "px";
+        pagebg.style.height = (parseInt(pagebg.style.height) + 2*(imgheight + 20)) + "px";
         for(let i = IMG_MAX; i < IMG_MAX + 8; i++) {
             createImg(i);
         }
