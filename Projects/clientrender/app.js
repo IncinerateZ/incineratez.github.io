@@ -42,7 +42,7 @@ function createImg(i) {
     popupcont.style.marginLeft = "-10000px";
 
     const temp = document.getElementById("popup-" + i);
-    temp.firstChild.innerHTML = "No Image Found (" + i + ").";
+    temp.firstChild.innerHTML = "No Image Found (" + i + "). <br> If Images Do Not Load, API Has Maxed Out.";
 }
 
 function fillCard(res) {
