@@ -143,3 +143,41 @@ window.onscroll = function(ev) {
         IMG_MAX += 8;
     }
 };
+
+window.addEventListener('wheel', function(event)
+{
+    if (event.deltaY > 0) {
+        const pagebg = document.getElementById("page-bg");
+        const last = document.getElementById(IMG_MAX-1);
+        if(last.src === "") return;
+        if ((window.innerHeight + window.pageYOffset) >= parseInt(pagebg.style.height)) {
+            pagebg.style.height = (parseInt(pagebg.style.height) + 2*(imgheight + 20)) + "px";
+            for(let i = IMG_MAX; i < IMG_MAX + 8; i++) {
+                createImg(i);
+            }
+            const getImages = async () => {
+                var res;
+                do {
+                    const response = await fetch(IMGBANK + Math.ceil((count + 1)/8), {
+                        headers: {
+                            'Accept-Version' : 'v1',
+                            'Authorization' : 'Client-ID nANLvJnLlK9S6wo_2WI5RJ0BU5ux6smSjBsVZT8z6sY'
+                        }
+                     });
+                    res = await response.json();
+                } while (res === pastres);
+                pastres = res;
+            
+                fillCard(res);
+    
+                if(count < IMG_MAX + 8) {
+                    setTimeout(() => {
+                        getImages()
+                    }, 5000);
+                }
+            }
+            getImages();
+            IMG_MAX += 8;
+        }
+    }
+});
