@@ -58,10 +58,11 @@ function fillCard(res) {
 
 window.onload = function() {
     const pagebg = document.getElementById("page-bg");
-    pagebg.style.height = "700px";
+    popupcont = document.getElementById("popup-container");
+    pagebg.style.height = window.innerHeight + "px";
+    console.log(pagebg.style.height, window.innerHeight);
 
     content = document.getElementById("content");
-    popupcont = document.getElementById("popup-container");
     imgwidth = (content.clientWidth - 4*25)/4;
     imgheight = imgwidth/1.7777777778;
 
