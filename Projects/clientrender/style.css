@@ -205,10 +205,10 @@ nav{
 }
 
 img {
+    vertical-align: top;
     width: 100%;
     height: 100%;
     position: relative;
-    background-image: url('https://media.discordapp.net/attachments/692262929252352055/733009662814847147/unknown.png');
 }
 
 #popup-container {
