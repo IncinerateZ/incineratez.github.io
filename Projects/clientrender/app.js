@@ -88,6 +88,7 @@ window.onload = function() {
 
     if(content.clientWidth <= 450) {
         imgwidth = (content.clientWidth - 20);
+        pagebg.style.height = (((imgwidth/1.7777777778) * 12) + 20) + "px";
     }
 
     imgheight = imgwidth/1.7777777778;
