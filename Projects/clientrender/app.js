@@ -1,5 +1,6 @@
 const IMGBANK = "https://api.unsplash.com/photos/random?count=8";
 var IMG_MAX = 12;
+var IMG_ROW = 2;
 
 const NOIMG = 'https://media.discordapp.net/attachments/692262929252352055/735073072444342272/unknown.png';
 
@@ -54,7 +55,10 @@ function createImg(i) {
 
     shadow.innerHTML += '<img id="preset-' + (i) +'" src="' + NOIMG + '">';
     shadow.innerHTML += '<img id="' + (i) + '"></img>';
-    //shadow.innerHTML += NOIMG;
+
+    //apply hidden visibility
+    const img = document.getElementById(i);
+    img.style.visibility = "hidden";
 
     //popup card
     popupcont.innerHTML += "<div class='popup' id='popup-" + i + "'><div class='popup-content'></div>"
@@ -74,6 +78,9 @@ function fillCard(res) {
         card.firstChild.innerHTML = "Photo by <a href='" + pic["user"]["links"]["html"] +"'>" + pic["user"]["name"] + "</a> on <a href='https://unsplash.com/?utm_source=Personal_App&utm_medium=referral'>Unsplash</a>";
         img.src = pic["urls"]["thumb"];
 
+        //remove hidden visibility
+        img.style.visibility = "visible";
+
         count++;
     });
 }
@@ -89,6 +96,7 @@ window.onload = function() {
     if(content.clientWidth <= 450) {
         imgwidth = (content.clientWidth - 20);
         pagebg.style.height = (((imgwidth/1.7777777778) * 12) + 20) + "px";
+        IMG_ROW = 12;
     }
 
     imgheight = imgwidth/1.7777777778;
@@ -121,7 +129,7 @@ window.onscroll = function(ev) {
     const last = document.getElementById(IMG_MAX-1);
     if(last.src === "") return;
     if ((window.innerHeight + window.pageYOffset) >= parseInt(pagebg.style.height)) {
-        pagebg.style.height = (parseInt(pagebg.style.height) + 2*(imgheight + 20)) + "px";
+        pagebg.style.height = (parseInt(pagebg.style.height) + IMG_ROW * (imgheight + 20)) + "px";
         for(let i = IMG_MAX; i < IMG_MAX + 8; i++) {
             createImg(i);
         }
