@@ -38,6 +38,15 @@ const getImages = async () => {
     }
 }
 
+function arrToString(arr) {
+    var res = "";
+    for(let c of arr) {
+        res += c;
+    }
+    console.log(res);
+    return parseInt(res);
+}
+
 function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
@@ -110,12 +119,13 @@ window.onload = function() {
     document.addEventListener('mousedown', function(event) {
         if(!(event.which === 1)) return;
         lastDownTarget = event.target;
-        if(!isNaN(lastDownTarget.id)) {
+        if(!isNaN(lastDownTarget.id) || (lastDownTarget.id.includes("preset-"))) {
             if(lastDownTarget.id === "") return;
+            let lastId = arrToString(lastDownTarget.id.match(/\d+/));
             popupcont.style.marginLeft = "0px";
-            const card = document.getElementById("popup-" + lastDownTarget.id);
+            const card = document.getElementById("popup-" + lastId);
             card.style.zIndex = 10000;
-            lastCard = lastDownTarget.id;
+            lastCard = lastId;
         } else if(lastDownTarget.id === "popup-container") {
             popupcont.style.marginLeft = "-10000px";
             const card = document.getElementById("popup-" + lastCard);
