@@ -107,10 +107,11 @@ window.onload = function() {
             const response = await fetch('https://google.incineratez.tech/hits/' + name, {
                 headers: {
                     //'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
                 }
             });
             const res = await response.json();
+            console.log(res)
             target.innerHTML = res["email"];
         }
         userAction();
