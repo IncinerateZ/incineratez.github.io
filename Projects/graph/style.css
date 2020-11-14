@@ -17,6 +17,10 @@ nav{
     background: rgb(32, 35, 48);
 }
 
+iframe{
+    transform: translateY(-200%);
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
