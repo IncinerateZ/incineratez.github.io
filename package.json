@@ -1,0 +1,23 @@
+{
+  "name": "website-top",
+  "version": "1.0.0",
+  "description": "[Page](http://incineratez.github.io)",
+  "main": "index.js",
+  "dependencies": {
+    "ws": "^7.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IncinerateZ/incineratez.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IncinerateZ/incineratez.github.io/issues"
+  },
+  "homepage": "https://github.com/IncinerateZ/incineratez.github.io#readme"
+}

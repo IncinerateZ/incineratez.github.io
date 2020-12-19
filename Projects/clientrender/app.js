@@ -1,4 +1,4 @@
-const IMGBANK = "https://api.unsplash.com/photos/random?count=8";
+const IMGBANK = "https://api.incin.tech/unsplash?c=";
 var IMG_MAX = 12;
 var IMG_ROW = 2;
 
@@ -19,11 +19,8 @@ var pastres;
 const getImages = async () => {
     var res;
     do {
-        const response = await fetch(IMGBANK + Math.ceil((count + 1)/8), {
-            headers: {
-                'Accept-Version' : 'v1',
-                'Authorization' : 'Client-ID nANLvJnLlK9S6wo_2WI5RJ0BU5ux6smSjBsVZT8z6sY'
-            }
+        const response = await fetch(IMGBANK + Math.ceil((count + 1) / 8), {
+            mode: "cors",
         });
         res = await response.json();
     } while (res === pastres);
@@ -134,7 +131,7 @@ window.onload = function() {
     }, false);
 }
 
-window.onscroll = function(ev) {
+function add() {
     const pagebg = document.getElementById("page-bg");
     const last = document.getElementById(IMG_MAX-1);
     if(last.src === "") return;
@@ -146,21 +143,12 @@ window.onscroll = function(ev) {
         getImages();
         IMG_MAX += 8;
     }
+}
+
+window.onscroll = function(ev) {
+    add();
 };
 
-window.addEventListener('wheel', function(event)
-{
-    if (event.deltaY > 0) {
-        const pagebg = document.getElementById("page-bg");
-        const last = document.getElementById(IMG_MAX-1);
-        if(last.src === "") return;
-        if ((window.innerHeight + window.pageYOffset) >= parseInt(pagebg.style.height)) {
-            pagebg.style.height = (parseInt(pagebg.style.height) + 2*(imgheight + 20)) + "px";
-            for(let i = IMG_MAX; i < IMG_MAX + 8; i++) {
-                createImg(i);
-            }
-            getImages();
-            IMG_MAX += 8;
-        }
-    }
-});
+window.addEventListener('wheel', function (event) {
+    if (event.deltaY > 0) add();
+})
